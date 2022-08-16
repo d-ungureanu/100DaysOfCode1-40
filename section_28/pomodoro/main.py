@@ -22,6 +22,7 @@ def reset_timer():
     ticks_lbl.config(text="")
     global reps
     reps = 0
+    start_btn["state"] = "active"
 
 
 # ---------------------------- TIMER MECHANISM ------------------------------- #
@@ -41,6 +42,7 @@ def start_timer():
     elif reps % 2 == 0:
         count_down(short_break_in_seconds)
         title_lbl.config(text="Break", foreground=PINK)
+    start_btn["state"] = "disabled"
 
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
@@ -54,6 +56,7 @@ def count_down(count):
     if count_seconds < 10:
         count_seconds = f"0{count_seconds}"
     canvas.itemconfig(timer_text, text=f"{count_minutes}:{count_seconds}")
+
     if count > 0:
         global timer
         timer = window.after(1000, count_down, count - 1)
