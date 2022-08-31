@@ -1,7 +1,7 @@
-with open("./Input/Names/invited_names.txt", "r") as names_file:
+with open("Input/Names/invited_names.txt", "r") as names_file:
     names_list = names_file.readlines()
 
-with open("./Input/Letters/starting_letter.txt", "r") as lt:
+with open("Input/Letters/starting_letter.txt", "r") as lt:
     letter_template = lt.read()
     for name in names_list:
         new_name = name.strip()
