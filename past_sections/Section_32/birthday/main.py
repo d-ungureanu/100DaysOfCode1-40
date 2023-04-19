@@ -19,7 +19,7 @@ birthday_dict = {(data_row["month"], data_row["day"]): data_row for (index, data
 if (today_month, today_day) in birthday_dict:
     name_to_email = birthday_dict[(today_month, today_day)]["name"]
     dest_email = birthday_dict[(today_month, today_day)]["email"]
-    templates_list = os.listdir("./letter_templates")
+    templates_list = os.listdir("letter_templates")
     chosen_template = random.choice(templates_list)
     with open(f"./letter_templates/{chosen_template}", "r") as template_to_use:
         template_text = template_to_use.read()
