@@ -6,7 +6,7 @@ today = dt.datetime.now()
 day_of_week = today.strftime("%A")
 
 my_email = "tiptil@gmail.com"
-my_password = "enzzutzitpwzdqto"
+my_password = ""
 dest_email = "mic_tgv@yahoo.co.uk"
 trigger = "Tuesday"
 

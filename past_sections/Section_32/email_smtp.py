@@ -1,7 +1,7 @@
 # import smtplib
 #
 # my_email = "tiptil@gmail.com"
-# my_password = "enzzutzitpwzdqto"
+# my_password = ""
 # dest_email = "mic_tgv@yahoo.co.uk"
 #
 # with smtplib.SMTP("smtp.gmail.com") as connection:
