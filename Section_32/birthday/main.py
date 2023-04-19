@@ -15,8 +15,6 @@ name_to_email = ""
 
 df = pd.read_csv("birthdays.csv")
 birthday_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in df.iterrows()}
-# for _, row in df.iterrows():
-#     birthday_dict[(row["month"], row["day"])] = row.to_dict()
 
 if (today_month, today_day) in birthday_dict:
     name_to_email = birthday_dict[(today_month, today_day)]["name"]
