@@ -1,14 +1,12 @@
-import requests
-import config
-from datetime import datetime
-import smtplib
 import time
-
-
+import config
+import smtplib
+import requests
+from datetime import datetime
 
 
 def is_near():
-    response = requests.get(url="http://api.open-notify.org/iss-now.json")
+    response = requests.get(url=config.ISS_API_URL)
     response.raise_for_status()
     data = response.json()
 
@@ -20,6 +18,7 @@ def is_near():
 
     return lat_diff <= 5 and lng_diff <= 5
 
+
 def is_night():
     parameters = {
         "lat": config.MY_LAT,
@@ -27,7 +26,7 @@ def is_night():
         "formatted": 0,
     }
 
-    response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)
+    response = requests.get(url=config.SUN_API_URL, params=parameters)
     response.raise_for_status()
     data = response.json()
     sunrise = int(data["results"]["sunrise"].split("T")[1].split(":")[0])
@@ -37,14 +36,14 @@ def is_night():
 
     return True if sunrise <= time_now < sunset else False
 
+
 while True:
     if is_near() and is_night():
-        with smtplib.SMTP("smtp.gmail.com") as email_connection:
+        with smtplib.SMTP(config.SMTP_SERV) as email_connection:
             email_connection.starttls()
             email_connection.login(user=config.sender_email, password=config.sender_pass)
             email_connection.sendmail(from_addr=config.sender_email,
                                       to_addrs=config.dest_email,
                                       msg=f"Subject: Look up\n\nISS is visible tonight from your location")
         print("Email sent successfully.")
-    time.sleep(60)
-
+    time.sleep(config.SLEEP_TIME)
