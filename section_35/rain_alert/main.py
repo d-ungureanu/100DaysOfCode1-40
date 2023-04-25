@@ -1,14 +1,14 @@
-import requests
-import config
 import os
+import requests
 from twilio.rest import Client
 
-api_key = config.api_key
+
 leeds_lat = 53.800755
 leeds_lon = -1.549077
 ozd_lat = 48.219560
 ozd_lon = 20.286920
 
+api_key = os.environ["OWM_API_KEY"]
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 
@@ -37,10 +37,9 @@ for weather_id in weather_id_list:
 
 if will_rain:
     client = Client(account_sid, auth_token)
-    message = client.messages \
-        .create(
+    message = client.messages.create(
         body="It's going to rain, get an umbrella!",
         from_='+16813076724',
         to='+447455414104'
     )
-print(message.status)
+    print(message.status)
