@@ -14,8 +14,8 @@ auth_token = os.environ['TWILIO_AUTH_TOKEN']
 
 api_url = "https://api.openweathermap.org/data/2.5/forecast"
 parameters = {
-    "lat": ozd_lat,
-    "lon": ozd_lon,
+    "lat": leeds_lat,
+    "lon": leeds_lon,
     "appid": api_key,
     "units": "metric"
 }
