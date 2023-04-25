@@ -132,6 +132,5 @@ dmypy.json
 .idea
 
 # Passwords Protection
-Section_35/rain_alert/config.py
-past_sections/Section_35/rain_alert/config.py
+config.py
 
