@@ -32,4 +32,15 @@ price_difference = abs(yesterday_closing_price - day_before_closing_price)
 difference_percentage = round(price_difference / yesterday_closing_price * 100, 2)
 
 if difference_percentage > 2: #change to 5
-    print("Get NEWS!")
+    news_params ={
+        "q": COMPANY_NAME,
+        "sortBy": "publishedAt",
+        "language": "en",
+        "searchIn": "title",
+        "apiKey": config.news_apiKey
+    }
+    news_response = requests.get(url=NEWS_ENDPOINT, params=news_params)
+    news_articles = news_response.json()["articles"]
+    top_news = news_articles[:3]
+
+    print(top_news)
