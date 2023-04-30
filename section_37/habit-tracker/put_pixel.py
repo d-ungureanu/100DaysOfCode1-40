@@ -18,12 +18,12 @@ auth_header ={
 
 today = dt.datetime.today().date().strftime("%Y%m%d")
 
-pixel_endpoint = f"{graph_endpoint}/{GRAPH_ID}/{today}"
+pixel_update_endpoint = f"{graph_endpoint}/{GRAPH_ID}/{today}"
 
 pixel_config = {
     "date": today,
     "quantity": "7500"
 }
 
-pixel_response = requests.put(url=pixel_endpoint, json=pixel_config, headers=auth_header)
+pixel_response = requests.put(url=pixel_update_endpoint, json=pixel_config, headers=auth_header)
 print(pixel_response.text)
