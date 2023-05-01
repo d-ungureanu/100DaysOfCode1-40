@@ -41,7 +41,7 @@ exercises_list = response.json()["exercises"]
 ex_post_endpoint = "https://api.sheety.co/3bc96fed85239a14d1abfd3b7403c6e4/workoutsTracking/workouts"
 
 sheety_auth_header = {
-    "Authorization": "Bearer ThisIsMyToken"
+    "Authorization": config.SHEETY_TOKEN
 }
 
 for entry in exercises_list:
