@@ -1,5 +1,3 @@
-import time
-
 import config
 import requests
 import datetime as dt
