@@ -31,4 +31,4 @@ class DataManager:
                 headers=SHEETY_AUTH_HEADER,
                 json=upload_data
             )
-            print("IATA code to upload: ", upload_response.text)
+            # print("IATA code to upload: ", upload_response.text)
