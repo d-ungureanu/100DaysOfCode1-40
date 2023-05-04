@@ -15,11 +15,12 @@ tequila_header = {
     "apikey": TEQUILA_API_KEY
 }
 
-print("________________________________________")
-print("today: ", TODAY)
-print("six months: ", SIX_MONTHS)
-print("Return from: ", RETURN_FROM)
-print("Return to: ", RETURN_TO)
+# print("________________________________________")
+# print("today: ", TODAY)
+# print("six months: ", SIX_MONTHS)
+# print("Return from: ", RETURN_FROM)
+# print("Return to: ", RETURN_TO)
+# print("________________________________________")
 
 
 class FlightData:
@@ -32,10 +33,10 @@ class FlightData:
             "fly_to": f"city:{city_iata_code}",
             "date_from": f"{TODAY}",
             "date_to": f"{SIX_MONTHS}",
-            "nights_in_dst_from": "7",
-            "nights_in_dst_to": "28",
+            "nights_in_dst_from": 7,
+            "nights_in_dst_to": 28,
             "flight_type": "round",
-            "adults": "1",
+            "adults": 1,
             "curr": "GBP",
             "sort": "price"
         }
