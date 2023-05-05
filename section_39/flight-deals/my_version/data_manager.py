@@ -1,8 +1,8 @@
 import requests
 import config
-from pprint import pprint
 
-SHEETY_ENDPOINT = "https://api.sheety.co/3bc96fed85239a14d1abfd3b7403c6e4/flightDeals/prices"
+# SHEETY_ENDPOINT = "https://api.sheety.co/3bc96fed85239a14d1abfd3b7403c6e4/flightDeals/prices" #Leinad API account
+SHEETY_ENDPOINT = "https://api.sheety.co/ebb01654d5ee1ae99f728ad2b4f66044/flightDealsApp/prices" #tiptil API account
 SHEETY_AUTH_HEADER = {
     "Authorization": config.SHEETY_TOKEN
 }
