@@ -16,13 +16,13 @@ class DataManager:
         self.destination_data = [
             { "city": "Paris", "iataCode": "PAR", "lowestPrice": 54, "id": 2 },
             { "city": "Berlin", "iataCode": "BER", "lowestPrice": 42, "id": 3 },
-            { "city": "Tokyo", "iataCode": "TYO", "lowestPrice": 485, "id": 4 },
-            { "city": "Sydney", "iataCode": "SYD", "lowestPrice": 551, "id": 5 },
+            { "city": "Tokyo", "iataCode": "FLR", "lowestPrice": 79, "id": 4 },
+            { "city": "Prague", "iataCode": "PRG", "lowestPrice": 60, "id": 5 },
             { "city": "Istanbul", "iataCode": "IST", "lowestPrice": 95, "id": 6 },
-            { "city": "Kuala Lumpur", "iataCode": "KUL", "lowestPrice": 414, "id": 7 },
-            { "city": "New York", "iataCode": "NYC", "lowestPrice": 240, "id": 8 },
-            { "city": "San Francisco", "iataCode": "SFO", "lowestPrice": 260, "id": 9 },
-            { "city": "Cape Town", "iataCode": "CPT", "lowestPrice": 378, "id": 10 }
+            { "city": "Bucharest", "iataCode": "BUH", "lowestPrice": 150, "id": 7 },
+            { "city": "Amsterdam", "iataCode": "AMS", "lowestPrice": 80, "id": 8 },
+            { "city": "Malaga", "iataCode": "AGP", "lowestPrice": 100, "id": 9 },
+            { "city": "Lisbon", "iataCode": "LIS", "lowestPrice": 90, "id": 10 }
         ]
         return self.destination_data
 
