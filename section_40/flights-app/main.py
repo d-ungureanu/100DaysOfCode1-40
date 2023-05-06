@@ -26,7 +26,9 @@ for destination in sheet_data:
         from_time=tomorrow,
         to_time=six_month_from_today
     )
+
     if flight.price < destination["lowestPrice"]:
-        notification_manager.send_sms(
-            message=f"Low price alert! Only £{flight.price} to fly from {flight.origin_city}-{flight.origin_airport} to {flight.destination_city}-{flight.destination_airport}, from {flight.out_date} to {flight.return_date}."
+        message_to_send = f"Subject:Low price alert!\n\nOnly £{flight.price} to fly from {flight.origin_city}-{flight.origin_airport} to {flight.destination_city}-{flight.destination_airport}, from {flight.out_date} to {flight.return_date}."
+        notification_manager.send_emails(
+            message=message_to_send.encode('utf-8')#encode because Malaga comes as Málaga
         )

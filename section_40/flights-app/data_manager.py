@@ -1,8 +1,12 @@
 from pprint import pprint
 import requests
+import config
 
 SHEETY_PRICES_ENDPOINT = "https://api.sheety.co/ebb01654d5ee1ae99f728ad2b4f66044/flightDealsApp/prices"
 SHEETY_USERS_ENDPOINT = "https://api.sheety.co/ebb01654d5ee1ae99f728ad2b4f66044/flightDealsApp/users"
+SHEETY_AUTH_HEADER = {
+    "Authorization": config.SHEETY_TOKEN
+}
 
 
 class DataManager:
@@ -12,9 +16,10 @@ class DataManager:
         self.users_list = []
 
     def get_users_list(self):
-        response = requests.get(url=SHEETY_USERS_ENDPOINT)
+        response = requests.get(url=SHEETY_USERS_ENDPOINT,headers=SHEETY_AUTH_HEADER)
         data = response.json()
         self.users_list = data["users"]
+        return self.users_list
 
     def add_user_to_list(self, first_name, last_name, email):
         new_data = {
@@ -26,13 +31,14 @@ class DataManager:
         }
         response = requests.post(
             url=f"{SHEETY_USERS_ENDPOINT}",
-            json=new_data
+            json=new_data,
+            headers=SHEETY_AUTH_HEADER
         )
         print(response.text)
 
     def get_destination_data(self):
-        response = requests.get(url=SHEETY_PRICES_ENDPOINT)
-        data = response.json()
+        # response = requests.get(url=SHEETY_PRICES_ENDPOINT, headers=SHEETY_AUTH_HEADER)
+        # data = response.json()
         # self.destination_data = data["prices"]
         self.destination_data = [
             { "city": "Paris", "iataCode": "PAR", "lowestPrice": 54, "id": 2 },
