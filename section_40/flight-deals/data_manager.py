@@ -2,11 +2,13 @@ import requests
 import config
 
 SHEETY_PRICES_ENDPOINT = config.SHEETY_PRICES_ENDPOINT
+SHEETY_USERS_ENDPOINT = config.SHEETY_USERS_ENDPOINT
 
 
 class DataManager:
 
     def __init__(self):
+        self.users_list = None
         self.destination_data = {}
 
     def get_destination_data(self):
@@ -27,3 +29,10 @@ class DataManager:
                 json=new_data
             )
             print(response.text)
+
+
+    def get_users_list(self):
+        response = requests.get(url=SHEETY_USERS_ENDPOINT)
+        data = response.json()
+        self.users_list = data["users"]
+        return self.users_list
